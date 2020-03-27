@@ -59,8 +59,8 @@ if [ -z "$ANDROID_HOME" ]; then
     wget -c "$ANDROID_SDK_X64" -O "android-sdk.tgz" --no-check-certificate
     tar zxf "android-sdk.tgz" -C "$INSTALL_PATH"
     cd "$INSTALL_PATH" && mv "android-sdk-linux" "android-sdk"
-    cd "$INSTALL_PATH" && chown $PARENT_USER:$PARENT_USER "android-sdk" -R
-    cd "$INSTALL_PATH" && chmod 777 "android-sdk" -R
+    cd "$INSTALL_PATH" && chown $PARENT_USER:$PARENT_USER "android-sdk"
+    cd "$INSTALL_PATH" && chmod 777 -R "android-sdk"
     cd ~/ && echo "export ANDROID_HOME=$ANDROID_SDK_PATH" >> ".profile"
     cd ~/ && echo "export PATH=\$PATH:$ANDROID_SDK_PATH/tools" >> ".profile"
     cd ~/ && echo "export PATH=\$PATH:$ANDROID_SDK_PATH/platform-tools" >> ".profile"
@@ -74,11 +74,11 @@ fi
 # Install Telerik NativeScript
 npm install -g nativescript --unsafe-perm
 
-cd "$INSTALL_PATH" && chmod -R 777 "node"
-cd ~/ && chown -R $PARENT_USER:$PARENT_USER ".android"
-cd ~/ && chown -R $PARENT_USER:$PARENT_USER ".node-gyp"
-cd ~/ && chown -R $PARENT_USER:$PARENT_USER ".tnsrc"
-cd ~/.local/share && chown -R $PARENT_USER:$PARENT_USER ".nativescript-cli"
+cd "$INSTALL_PATH" && chmod 777 -R "node"
+cd ~/ && chown $PARENT_USER:$PARENT_USER ".android"
+cd ~/ && chown $PARENT_USER:$PARENT_USER ".node-gyp"
+cd ~/ && chown $PARENT_USER:$PARENT_USER ".tnsrc"
+cd ~/.local/share && chown $PARENT_USER:$PARENT_USER ".nativescript-cli"
 
 echo "----------------------------------"
 echo "Restart your Ubuntu session for installation to complete..."
