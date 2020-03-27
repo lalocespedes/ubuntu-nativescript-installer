@@ -74,11 +74,11 @@ fi
 # Install Telerik NativeScript
 npm install -g nativescript --unsafe-perm
 
-cd "$INSTALL_PATH" && chmod 777 "node" -R
-cd ~/ && chown $PARENT_USER:$PARENT_USER ".android" -R
-cd ~/ && chown $PARENT_USER:$PARENT_USER ".node-gyp" -R
-cd ~/ && chown $PARENT_USER:$PARENT_USER ".tnsrc" -R
-cd ~/.local/share && chown $PARENT_USER:$PARENT_USER ".nativescript-cli" -R
+cd "$INSTALL_PATH" && chmod -R 777 "node"
+cd ~/ && chown -R $PARENT_USER:$PARENT_USER ".android"
+cd ~/ && chown -R $PARENT_USER:$PARENT_USER ".node-gyp"
+cd ~/ && chown -R $PARENT_USER:$PARENT_USER ".tnsrc"
+cd ~/.local/share && chown -R $PARENT_USER:$PARENT_USER ".nativescript-cli"
 
 echo "----------------------------------"
 echo "Restart your Ubuntu session for installation to complete..."
